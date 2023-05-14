@@ -1,0 +1,32 @@
+trigger:
+- master
+- main
+
+variables:
+  - group: 'ML Build Agent Pool for Python (Nexus DSL)'
+  - group: 'Python 3.11.1'
+
+resources:      
+  repositories: 
+  - repository: devops
+    name: Data Science/devops
+    type: git 
+    ref: master #branch name
+
+jobs:
+
+- job: RunTests
+  pool: 'ML Build'
+  displayName: 'RunTests'
+
+  steps:
+  - template: python/run_tests.yml@devops
+
+- job: PublishArtifacts
+  dependsOn: RunTests
+  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+  pool: 'ML Build'
+  displayName: 'PublishArtifacts'
+
+  steps:
+  - template: python/publish_artifacts.yml@devops

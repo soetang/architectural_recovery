@@ -1,0 +1,39 @@
+---
+title: "Recovery of zeeguu API"
+format:
+  html:
+    code-fold: true
+---
+
+
+```{python}
+import os
+
+os.system(
+    " pyreverse zeeguu.core \\"
+        "--output 'dot' \\"
+        "--ignore test \\" 
+        "--module-names n \\"
+        "--only-classnames \\"
+        "--output-directory ../pyverse_out\\"
+        "--source-roots ../../api-master"
+)
+```
+
+```{python}
+import networkx as nx
+import matplotlib.pyplot as plt
+
+G = nx.nx_pydot.read_dot('packages.dot')
+
+def draw_graph(G, size, **args):
+    plt.figure(figsize=size)
+    nx.draw(G, **args)
+    plt.show()
+
+draw_graph(G, (12, 12), with_labels = True)
+```
+
+```{bash}
+plantuml architectural_recovery/scripts/packages.puml -thtml
+```
