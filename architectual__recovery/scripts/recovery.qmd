@@ -10,20 +10,21 @@ format:
 import os
 
 os.system(
-    " pyreverse zeeguu.core \\"
+    " pyreverse zeeguu \\"
         "--output 'dot' \\"
-        "--ignore test \\" 
         "--module-names n \\"
         "--only-classnames \\"
         "--output-directory ../pyverse_out\\"
-        "--source-roots ../../api-master"
+        "--source-roots ../../api-master/ \\"
+        "--ignore zeeguu.api.test \\" 
+        "--ignore archrcover"
 )
 ```
 
 ```{python}
 import networkx as nx
 import matplotlib.pyplot as plt
-
+import pandas as pd
 G = nx.nx_pydot.read_dot('packages.dot')
 
 def draw_graph(G, size, **args):
@@ -35,5 +36,116 @@ draw_graph(G, (12, 12), with_labels = True)
 ```
 
 ```{bash}
-plantuml architectural_recovery/scripts/packages.puml -thtml
+plantuml scripts/packages.puml 
+```
+
+```{python}
+
+degrees = G.in_degree()
+
+in_degrees_df = [{"node": key, "indegree":value} for key, value in degrees]
+
+df = pd.DataFrame(in_degrees_df)
+
+df = df.sort_values('indegree', ascending=False)
+
+df.head(15)
+```
+
+```{python}
+
+degrees_out = G.out_degree()
+
+out_degree_df = [{"node": key, "indegree":value} for key, value in degrees_out]
+
+df_out = pd.DataFrame(out_degree_df)
+
+df_out = df_out.sort_values('indegree', ascending=False)
+
+df_out.head(15)
+```
+
+```{python}
+
+def get_node_level(x):
+    return x.count('.')
+
+def change_level(x:str, level:int):
+    levels = x.split('.')
+    return ".".join(levels[0:level]) 
+
+level = {x :  get_node_level(x) for x in G.nodes()}
+nx.set_node_attributes(G, level, "level")
+
+
+nodes = [
+    node
+    for node, data
+    in G.nodes(data=True)
+]
+
+
+subgraph = G.subgraph(nodes)
+
+
+```
+
+
+```{python}
+import re 
+import warnings
+
+def aggregate_edges(G, level, exclude_relations_to_self = True):
+    edges = [
+        {
+            'outgoing' : change_level(outgoing, level), 
+            'ingoing' : change_level(ingoing, level)
+        }
+        for outgoing, ingoing
+        in G.edges(data=False)
+    ]
+
+    # add matching edges together an create a weight
+    df = pd.DataFrame(edges).groupby(['outgoing', 'ingoing']).size().to_frame('weight')
+    df = df.reset_index()
+
+    if exclude_relations_to_self:
+        df = df[df['outgoing'] != df['ingoing']]
+
+    return list(df.itertuples(index=False, name=None))
+
+def remove_nodes(g, filter:list[str]):
+
+    if isinstance(filter, str):
+        warnings.warn('You entered filter as a string, please consider if this is what you wanted to do?')
+        filter = list([filter])
+
+    regex = "|".join(filter)
+    nodes = g.nodes(data=False)
+
+    matching_nodes = [x for x in nodes if re.match(regex, x)]
+
+    g.remove_nodes_from(matching_nodes)
+
+    return g
+
+
+edges = aggregate_edges(G, 3)
+
+new_graph = nx.DiGraph()
+new_graph.add_weighted_edges_from(edges)
+
+nodes_to_remove = [
+    "zeeguu$", # Not top level code
+    "zeeguu\.core$", # Remove core sinces it look like pure logging which is un-interesting
+    "test$" # removing tests
+]
+
+remove_nodes(new_graph, nodes_to_remove)
+
+draw_graph(new_graph, (12, 12), with_labels = True)
+
+
+
+hej = re.match('zeeguu', 'zeeguu.api')
 ```
