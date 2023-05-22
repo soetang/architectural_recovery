@@ -1,143 +1,93 @@
 @startuml classes
 set namespaceSeparator none
-class "Article" as zeeguu.core.model.article.Article #aquamarine {
+class "Article" as zeeguu.core.model.article.Article {
 }
-class "ArticleDifficultyFeedback" as zeeguu.core.model.article_difficulty_feedback.ArticleDifficultyFeedback #aquamarine {
+class "ArticleDifficultyFeedback" as zeeguu.core.model.article_difficulty_feedback.ArticleDifficultyFeedback {
 }
-class "ArticleWord" as zeeguu.core.model.article_word.ArticleWord #aquamarine {
+class "ArticleWord" as zeeguu.core.model.article_word.ArticleWord {
 }
-class "ArticlesCache" as zeeguu.core.model.articles_cache.ArticlesCache #aquamarine {
+class "ArticlesCache" as zeeguu.core.model.articles_cache.ArticlesCache {
 }
-class "AutoGECTagging" as zeeguu.core.nlp_pipeline.automatic_gec_tagging.AutoGECTagging #aquamarine {
+class "Bookmark" as zeeguu.core.model.bookmark.Bookmark {
 }
-class "BasicSRSchedule" as zeeguu.core.word_scheduling.basicSR.basicSR.BasicSRSchedule #aquamarine {
+class "BookmarkPriorityARTS" as zeeguu.core.model.bookmark_priority_arts.BookmarkPriorityARTS {
 }
-class "Bookmark" as zeeguu.core.model.bookmark.Bookmark #aquamarine {
+class "Cohort" as zeeguu.core.model.cohort.Cohort {
 }
-class "BookmarkPriorityARTS" as zeeguu.core.model.bookmark_priority_arts.BookmarkPriorityARTS #aquamarine {
+class "CohortArticleMap" as zeeguu.core.model.cohort_article_map.CohortArticleMap {
 }
-class "CognacyDifficultyEstimator" as zeeguu.core.language.strategies.cognacy_difficulty_estimator.CognacyDifficultyEstimator #aquamarine {
+class "DifficultyLingoRank" as zeeguu.core.model.difficulty_lingo_rank.DifficultyLingoRank {
 }
-class "CognacyWordHistoryDifficultyEstimator" as zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator.CognacyWordHistoryDifficultyEstimator #aquamarine {
+class "DomainName" as zeeguu.core.model.domain_name.DomainName {
 }
-class "Cohort" as zeeguu.core.model.cohort.Cohort #aquamarine {
+class "Exercise" as zeeguu.core.model.exercise.Exercise {
 }
-class "CohortArticleMap" as zeeguu.core.model.cohort_article_map.CohortArticleMap #aquamarine {
+class "ExerciseOutcome" as zeeguu.core.model.exercise_outcome.ExerciseOutcome {
 }
-class "ConfusionSet" as zeeguu.core.nlp_pipeline.confusion_set.ConfusionSet #aquamarine {
+class "ExerciseSource" as zeeguu.core.model.exercise_source.ExerciseSource {
 }
-class "DefaultDifficultyEstimator" as zeeguu.core.language.strategies.default_difficulty_estimator.DefaultDifficultyEstimator #aquamarine {
+class "Language" as zeeguu.core.model.language.Language {
 }
-class "DifficultyEstimatorFactory" as zeeguu.core.language.difficulty_estimator_factory.DifficultyEstimatorFactory #aquamarine {
+class "LocalizedTopic" as zeeguu.core.model.localized_topic.LocalizedTopic {
 }
-class "DifficultyEstimatorStrategy" as zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy #aquamarine {
+class "PersonalCopy" as zeeguu.core.model.personal_copy.PersonalCopy {
 }
-class "DifficultyLingoRank" as zeeguu.core.model.difficulty_lingo_rank.DifficultyLingoRank #aquamarine {
+class "RSSFeed" as zeeguu.core.model.feed.RSSFeed {
 }
-class "DomainName" as zeeguu.core.model.domain_name.DomainName #aquamarine {
+class "Search" as zeeguu.core.model.search.Search {
 }
-class "ERRANT_Alignment" as zeeguu.core.nlp_pipeline.alignment_errant.ERRANT_Alignment #aquamarine {
+class "SearchFilter" as zeeguu.core.model.search_filter.SearchFilter {
 }
-class "Edit" as zeeguu.core.nlp_pipeline.edit_errant.Edit #aquamarine {
+class "SearchSubscription" as zeeguu.core.model.search_subscription.SearchSubscription {
 }
-class "Exercise" as zeeguu.core.model.exercise.Exercise #aquamarine {
+class "Session" as zeeguu.core.model.session.Session {
 }
-class "ExerciseOutcome" as zeeguu.core.model.exercise_outcome.ExerciseOutcome #aquamarine {
+class "SortedExerciseLog" as zeeguu.core.model.sorted_exercise_log.SortedExerciseLog {
 }
-class "ExerciseSource" as zeeguu.core.model.exercise_source.ExerciseSource #aquamarine {
+class "StarredArticle" as zeeguu.core.model.starred_article.StarredArticle {
 }
-class "FleschKincaidDifficultyEstimator" as zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator.FleschKincaidDifficultyEstimator #aquamarine {
+class "Teacher" as zeeguu.core.model.teacher.Teacher {
 }
-class "FrequencyDifficultyEstimator" as zeeguu.core.language.strategies.frequency_difficulty_estimator.FrequencyDifficultyEstimator #aquamarine {
+class "TeacherCohortMap" as zeeguu.core.model.teacher_cohort_map.TeacherCohortMap {
 }
-class "JSONSerializable" as zeeguu.core.util.encoding.JSONSerializable #aquamarine {
+class "Text" as zeeguu.core.model.text.Text {
 }
-class "Language" as zeeguu.core.model.language.Language #aquamarine {
+class "Topic" as zeeguu.core.model.topic.Topic {
 }
-class "LocalizedTopic" as zeeguu.core.model.localized_topic.LocalizedTopic #aquamarine {
+class "TopicFilter" as zeeguu.core.model.topic_filter.TopicFilter {
 }
-class "NoiseGenerator" as zeeguu.core.nlp_pipeline.confusion_generator.NoiseGenerator #aquamarine {
+class "TopicSubscription" as zeeguu.core.model.topic_subscription.TopicSubscription {
 }
-class "PersonalCopy" as zeeguu.core.model.personal_copy.PersonalCopy #aquamarine {
+class "UniqueCode" as zeeguu.core.model.unique_code.UniqueCode {
 }
-class "RSSFeed" as zeeguu.core.model.feed.RSSFeed #aquamarine {
+class "Url" as zeeguu.core.model.url.Url {
 }
-class "Search" as zeeguu.core.model.search.Search #aquamarine {
+class "User" as zeeguu.core.model.user.User {
 }
-class "SearchFilter" as zeeguu.core.model.search_filter.SearchFilter #aquamarine {
+class "UserActivityData" as zeeguu.core.model.user_activitiy_data.UserActivityData {
 }
-class "SearchSubscription" as zeeguu.core.model.search_subscription.SearchSubscription #aquamarine {
+class "UserArticle" as zeeguu.core.model.user_article.UserArticle {
 }
-class "Session" as zeeguu.core.model.session.Session #aquamarine {
+class "UserExerciseSession" as zeeguu.core.model.user_exercise_session.UserExerciseSession {
 }
-class "<color:red>SkippedAlreadyInDB</color>" as zeeguu.core.content_retriever.article_downloader.SkippedAlreadyInDB #aquamarine {
+class "UserLanguage" as zeeguu.core.model.user_language.UserLanguage {
 }
-class "<color:red>SkippedForLowQuality</color>" as zeeguu.core.content_retriever.article_downloader.SkippedForLowQuality #aquamarine {
+class "UserPreference" as zeeguu.core.model.user_preference.UserPreference {
 }
-class "<color:red>SkippedForTooOld</color>" as zeeguu.core.content_retriever.article_downloader.SkippedForTooOld #aquamarine {
+class "UserReadingSession" as zeeguu.core.model.user_reading_session.UserReadingSession {
 }
-class "SortedExerciseLog" as zeeguu.core.model.sorted_exercise_log.SortedExerciseLog #aquamarine {
+class "UserWord" as zeeguu.core.model.user_word.UserWord {
 }
-class "SpacyWrapper" as zeeguu.core.nlp_pipeline.spacy_wrapper.SpacyWrapper #aquamarine {
+class "WatchEventType" as zeeguu.core.model.smartwatch.watch_event_type.WatchEventType {
 }
-class "StarredArticle" as zeeguu.core.model.starred_article.StarredArticle #aquamarine {
+class "WatchInteractionEvent" as zeeguu.core.model.smartwatch.watch_interaction_event.WatchInteractionEvent {
 }
-class "Teacher" as zeeguu.core.model.teacher.Teacher #aquamarine {
+class "WordInteractionEvent" as zeeguu.core.model.word_knowledge.word_interaction_history.WordInteractionEvent {
 }
-class "TeacherCohortMap" as zeeguu.core.model.teacher_cohort_map.TeacherCohortMap #aquamarine {
+class "WordInteractionHistory" as zeeguu.core.model.word_knowledge.word_interaction_history.WordInteractionHistory {
 }
-class "Text" as zeeguu.core.model.text.Text #aquamarine {
+class "WordToStudy" as zeeguu.core.model.word_to_study.WordToStudy {
 }
-class "Topic" as zeeguu.core.model.topic.Topic #aquamarine {
-}
-class "TopicFilter" as zeeguu.core.model.topic_filter.TopicFilter #aquamarine {
-}
-class "TopicSubscription" as zeeguu.core.model.topic_subscription.TopicSubscription #aquamarine {
-}
-class "UniqueCode" as zeeguu.core.model.unique_code.UniqueCode #aquamarine {
-}
-class "Url" as zeeguu.core.model.url.Url #aquamarine {
-}
-class "User" as zeeguu.core.model.user.User #aquamarine {
-}
-class "UserActivityData" as zeeguu.core.model.user_activitiy_data.UserActivityData #aquamarine {
-}
-class "UserArticle" as zeeguu.core.model.user_article.UserArticle #aquamarine {
-}
-class "UserExerciseSession" as zeeguu.core.model.user_exercise_session.UserExerciseSession #aquamarine {
-}
-class "UserLanguage" as zeeguu.core.model.user_language.UserLanguage #aquamarine {
-}
-class "UserPreference" as zeeguu.core.model.user_preference.UserPreference #aquamarine {
-}
-class "UserReadingSession" as zeeguu.core.model.user_reading_session.UserReadingSession #aquamarine {
-}
-class "UserWord" as zeeguu.core.model.user_word.UserWord #aquamarine {
-}
-class "WatchEventType" as zeeguu.core.model.smartwatch.watch_event_type.WatchEventType #aquamarine {
-}
-class "WatchInteractionEvent" as zeeguu.core.model.smartwatch.watch_interaction_event.WatchInteractionEvent #aquamarine {
-}
-class "WordHistoryDifficultyEstimator" as zeeguu.core.language.strategies.word_history_difficulty_estimator.WordHistoryDifficultyEstimator #aquamarine {
-}
-class "WordInteractionEvent" as zeeguu.core.model.word_knowledge.word_interaction_history.WordInteractionEvent #aquamarine {
-}
-class "WordInteractionHistory" as zeeguu.core.model.word_knowledge.word_interaction_history.WordInteractionHistory #aquamarine {
-}
-class "WordRankDifficultyEstimator" as zeeguu.core.language.strategies.word_rank_difficulty_estimator.WordRankDifficultyEstimator #aquamarine {
-}
-class "WordToStudy" as zeeguu.core.model.word_to_study.WordToStudy #aquamarine {
-}
-class "ZeeguuMailer" as zeeguu.core.emailer.zeeguu_mailer.ZeeguuMailer #aquamarine {
-}
-zeeguu.core.language.strategies.cognacy_difficulty_estimator.CognacyDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator.CognacyWordHistoryDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.default_difficulty_estimator.DefaultDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator.FleschKincaidDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.frequency_difficulty_estimator.FrequencyDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.word_history_difficulty_estimator.WordHistoryDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.word_rank_difficulty_estimator.WordRankDifficultyEstimator --|> zeeguu.core.language.difficulty_estimator_strategy.DifficultyEstimatorStrategy
-zeeguu.core.language.strategies.default_difficulty_estimator.DefaultDifficultyEstimator --* zeeguu.core.language.difficulty_estimator_factory.DifficultyEstimatorFactory : _default_estimator
 zeeguu.core.model.domain_name.DomainName --* zeeguu.core.model.url.Url : domain
 zeeguu.core.model.user.User --o zeeguu.core.model.user_preference.UserPreference : user
 zeeguu.core.model.user.User --o zeeguu.core.model.word_knowledge.word_interaction_history.WordInteractionHistory : user

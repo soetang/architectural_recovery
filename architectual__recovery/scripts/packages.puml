@@ -1,347 +1,107 @@
 @startuml packages
 set namespaceSeparator none
-package "__init__" as __init__ #aliceblue {
+package "__init__" as __init__ {
 }
-package "archrcover" as archrcover #antiquewhite {
+package "archrcover" as archrcover {
 }
-package "archrcover.download_repo" as archrcover.download_repo #antiquewhite {
+package "archrcover.download_repo" as archrcover.download_repo {
 }
-package "zeeguu.core" as zeeguu.core #aquamarine {
+package "zeeguu.core.model" as zeeguu.core.model {
 }
-package "zeeguu.core.account_management" as zeeguu.core.account_management #aquamarine {
+package "zeeguu.core.model.article" as zeeguu.core.model.article {
 }
-package "zeeguu.core.account_management.user_account_creation" as zeeguu.core.account_management.user_account_creation #aquamarine {
+package "zeeguu.core.model.article_difficulty_feedback" as zeeguu.core.model.article_difficulty_feedback {
 }
-package "zeeguu.core.bookmark_quality" as zeeguu.core.bookmark_quality #aquamarine {
+package "zeeguu.core.model.article_word" as zeeguu.core.model.article_word {
 }
-package "zeeguu.core.bookmark_quality.fit_for_study" as zeeguu.core.bookmark_quality.fit_for_study #aquamarine {
+package "zeeguu.core.model.articles_cache" as zeeguu.core.model.articles_cache {
 }
-package "zeeguu.core.bookmark_quality.negative_qualities" as zeeguu.core.bookmark_quality.negative_qualities #aquamarine {
+package "zeeguu.core.model.bookmark" as zeeguu.core.model.bookmark {
 }
-package "zeeguu.core.bookmark_quality.positive_qualities" as zeeguu.core.bookmark_quality.positive_qualities #aquamarine {
+package "zeeguu.core.model.bookmark_priority_arts" as zeeguu.core.model.bookmark_priority_arts {
 }
-package "zeeguu.core.bookmark_quality.top_bookmarks_for_user" as zeeguu.core.bookmark_quality.top_bookmarks_for_user #aquamarine {
+package "zeeguu.core.model.cohort" as zeeguu.core.model.cohort {
 }
-package "zeeguu.core.configuration" as zeeguu.core.configuration #aquamarine {
+package "zeeguu.core.model.cohort_article_map" as zeeguu.core.model.cohort_article_map {
 }
-package "zeeguu.core.configuration.configuration" as zeeguu.core.configuration.configuration #aquamarine {
+package "zeeguu.core.model.difficulty_lingo_rank" as zeeguu.core.model.difficulty_lingo_rank {
 }
-package "zeeguu.core.constants" as zeeguu.core.constants #aquamarine {
+package "zeeguu.core.model.domain_name" as zeeguu.core.model.domain_name {
 }
-package "zeeguu.core.content_recommender" as zeeguu.core.content_recommender #aquamarine {
+package "zeeguu.core.model.exercise" as zeeguu.core.model.exercise {
 }
-package "zeeguu.core.content_recommender.elastic_first_recommender" as zeeguu.core.content_recommender.elastic_first_recommender #aquamarine {
+package "zeeguu.core.model.exercise_outcome" as zeeguu.core.model.exercise_outcome {
 }
-package "zeeguu.core.content_recommender.elastic_recommender" as zeeguu.core.content_recommender.elastic_recommender #aquamarine {
+package "zeeguu.core.model.exercise_source" as zeeguu.core.model.exercise_source {
 }
-package "zeeguu.core.content_recommender.mysql_recommender" as zeeguu.core.content_recommender.mysql_recommender #aquamarine {
+package "zeeguu.core.model.feed" as zeeguu.core.model.feed {
 }
-package "zeeguu.core.content_retriever" as zeeguu.core.content_retriever #aquamarine {
+package "zeeguu.core.model.language" as zeeguu.core.model.language {
 }
-package "zeeguu.core.content_retriever.article_downloader" as zeeguu.core.content_retriever.article_downloader #aquamarine {
+package "zeeguu.core.model.learner_stats" as zeeguu.core.model.learner_stats {
 }
-package "zeeguu.core.content_retriever.content_cleaner" as zeeguu.core.content_retriever.content_cleaner #aquamarine {
+package "zeeguu.core.model.learner_stats.learner_stats" as zeeguu.core.model.learner_stats.learner_stats {
 }
-package "zeeguu.core.content_retriever.quality_filter" as zeeguu.core.content_retriever.quality_filter #aquamarine {
+package "zeeguu.core.model.localized_topic" as zeeguu.core.model.localized_topic {
 }
-package "zeeguu.core.content_retriever.unicode_normalization" as zeeguu.core.content_retriever.unicode_normalization #aquamarine {
+package "zeeguu.core.model.personal_copy" as zeeguu.core.model.personal_copy {
 }
-package "zeeguu.core.content_retriever.url_downloader" as zeeguu.core.content_retriever.url_downloader #aquamarine {
+package "zeeguu.core.model.search" as zeeguu.core.model.search {
 }
-package "zeeguu.core.content_retriever.video_dowloader" as zeeguu.core.content_retriever.video_dowloader #aquamarine {
+package "zeeguu.core.model.search_filter" as zeeguu.core.model.search_filter {
 }
-package "zeeguu.core.crowd_translations" as zeeguu.core.crowd_translations #aquamarine {
+package "zeeguu.core.model.search_subscription" as zeeguu.core.model.search_subscription {
 }
-package "zeeguu.core.definition_of_learned" as zeeguu.core.definition_of_learned #aquamarine {
+package "zeeguu.core.model.session" as zeeguu.core.model.session {
 }
-package "zeeguu.core.definition_of_learned.is_learned" as zeeguu.core.definition_of_learned.is_learned #aquamarine {
+package "zeeguu.core.model.smartwatch" as zeeguu.core.model.smartwatch {
 }
-package "zeeguu.core.elastic" as zeeguu.core.elastic #aquamarine {
+package "zeeguu.core.model.smartwatch.watch_event_type" as zeeguu.core.model.smartwatch.watch_event_type {
 }
-package "zeeguu.core.elastic.elastic_query_builder" as zeeguu.core.elastic.elastic_query_builder #aquamarine {
+package "zeeguu.core.model.smartwatch.watch_interaction_event" as zeeguu.core.model.smartwatch.watch_interaction_event {
 }
-package "zeeguu.core.elastic.indexing" as zeeguu.core.elastic.indexing #aquamarine {
+package "zeeguu.core.model.sorted_exercise_log" as zeeguu.core.model.sorted_exercise_log {
 }
-package "zeeguu.core.elastic.settings" as zeeguu.core.elastic.settings #aquamarine {
+package "zeeguu.core.model.starred_article" as zeeguu.core.model.starred_article {
 }
-package "zeeguu.core.emailer" as zeeguu.core.emailer #aquamarine {
+package "zeeguu.core.model.teacher" as zeeguu.core.model.teacher {
 }
-package "zeeguu.core.emailer.password_reset" as zeeguu.core.emailer.password_reset #aquamarine {
+package "zeeguu.core.model.teacher_cohort_map" as zeeguu.core.model.teacher_cohort_map {
 }
-package "zeeguu.core.emailer.user_activity" as zeeguu.core.emailer.user_activity #aquamarine {
+package "zeeguu.core.model.text" as zeeguu.core.model.text {
 }
-package "zeeguu.core.emailer.zeeguu_mailer" as zeeguu.core.emailer.zeeguu_mailer #aquamarine {
+package "zeeguu.core.model.topic" as zeeguu.core.model.topic {
 }
-package "zeeguu.core.exercises" as zeeguu.core.exercises #aquamarine {
+package "zeeguu.core.model.topic_filter" as zeeguu.core.model.topic_filter {
 }
-package "zeeguu.core.exercises.similar_words" as zeeguu.core.exercises.similar_words #aquamarine {
+package "zeeguu.core.model.topic_subscription" as zeeguu.core.model.topic_subscription {
 }
-package "zeeguu.core.language" as zeeguu.core.language #aquamarine {
+package "zeeguu.core.model.unique_code" as zeeguu.core.model.unique_code {
 }
-package "zeeguu.core.language.difficulty_estimator_factory" as zeeguu.core.language.difficulty_estimator_factory #aquamarine {
+package "zeeguu.core.model.url" as zeeguu.core.model.url {
 }
-package "zeeguu.core.language.difficulty_estimator_strategy" as zeeguu.core.language.difficulty_estimator_strategy #aquamarine {
+package "zeeguu.core.model.user" as zeeguu.core.model.user {
 }
-package "zeeguu.core.language.strategies" as zeeguu.core.language.strategies #aquamarine {
+package "zeeguu.core.model.user_activitiy_data" as zeeguu.core.model.user_activitiy_data {
 }
-package "zeeguu.core.language.strategies.cognacy_difficulty_estimator" as zeeguu.core.language.strategies.cognacy_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_article" as zeeguu.core.model.user_article {
 }
-package "zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator" as zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_exercise_session" as zeeguu.core.model.user_exercise_session {
 }
-package "zeeguu.core.language.strategies.default_difficulty_estimator" as zeeguu.core.language.strategies.default_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_language" as zeeguu.core.model.user_language {
 }
-package "zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator" as zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_preference" as zeeguu.core.model.user_preference {
 }
-package "zeeguu.core.language.strategies.frequency_difficulty_estimator" as zeeguu.core.language.strategies.frequency_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_reading_session" as zeeguu.core.model.user_reading_session {
 }
-package "zeeguu.core.language.strategies.word_history_difficulty_estimator" as zeeguu.core.language.strategies.word_history_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.user_word" as zeeguu.core.model.user_word {
 }
-package "zeeguu.core.language.strategies.word_rank_difficulty_estimator" as zeeguu.core.language.strategies.word_rank_difficulty_estimator #aquamarine {
+package "zeeguu.core.model.word_knowledge" as zeeguu.core.model.word_knowledge {
 }
-package "zeeguu.core.model" as zeeguu.core.model #aquamarine {
+package "zeeguu.core.model.word_knowledge.word_interaction_history" as zeeguu.core.model.word_knowledge.word_interaction_history {
 }
-package "zeeguu.core.model.article" as zeeguu.core.model.article #aquamarine {
+package "zeeguu.core.model.word_to_study" as zeeguu.core.model.word_to_study {
 }
-package "zeeguu.core.model.article_difficulty_feedback" as zeeguu.core.model.article_difficulty_feedback #aquamarine {
-}
-package "zeeguu.core.model.article_word" as zeeguu.core.model.article_word #aquamarine {
-}
-package "zeeguu.core.model.articles_cache" as zeeguu.core.model.articles_cache #aquamarine {
-}
-package "zeeguu.core.model.bookmark" as zeeguu.core.model.bookmark #aquamarine {
-}
-package "zeeguu.core.model.bookmark_priority_arts" as zeeguu.core.model.bookmark_priority_arts #aquamarine {
-}
-package "zeeguu.core.model.cohort" as zeeguu.core.model.cohort #aquamarine {
-}
-package "zeeguu.core.model.cohort_article_map" as zeeguu.core.model.cohort_article_map #aquamarine {
-}
-package "zeeguu.core.model.difficulty_lingo_rank" as zeeguu.core.model.difficulty_lingo_rank #aquamarine {
-}
-package "zeeguu.core.model.domain_name" as zeeguu.core.model.domain_name #aquamarine {
-}
-package "zeeguu.core.model.exercise" as zeeguu.core.model.exercise #aquamarine {
-}
-package "zeeguu.core.model.exercise_outcome" as zeeguu.core.model.exercise_outcome #aquamarine {
-}
-package "zeeguu.core.model.exercise_source" as zeeguu.core.model.exercise_source #aquamarine {
-}
-package "zeeguu.core.model.feed" as zeeguu.core.model.feed #aquamarine {
-}
-package "zeeguu.core.model.language" as zeeguu.core.model.language #aquamarine {
-}
-package "zeeguu.core.model.learner_stats" as zeeguu.core.model.learner_stats #aquamarine {
-}
-package "zeeguu.core.model.learner_stats.learner_stats" as zeeguu.core.model.learner_stats.learner_stats #aquamarine {
-}
-package "zeeguu.core.model.localized_topic" as zeeguu.core.model.localized_topic #aquamarine {
-}
-package "zeeguu.core.model.personal_copy" as zeeguu.core.model.personal_copy #aquamarine {
-}
-package "zeeguu.core.model.search" as zeeguu.core.model.search #aquamarine {
-}
-package "zeeguu.core.model.search_filter" as zeeguu.core.model.search_filter #aquamarine {
-}
-package "zeeguu.core.model.search_subscription" as zeeguu.core.model.search_subscription #aquamarine {
-}
-package "zeeguu.core.model.session" as zeeguu.core.model.session #aquamarine {
-}
-package "zeeguu.core.model.smartwatch" as zeeguu.core.model.smartwatch #aquamarine {
-}
-package "zeeguu.core.model.smartwatch.watch_event_type" as zeeguu.core.model.smartwatch.watch_event_type #aquamarine {
-}
-package "zeeguu.core.model.smartwatch.watch_interaction_event" as zeeguu.core.model.smartwatch.watch_interaction_event #aquamarine {
-}
-package "zeeguu.core.model.sorted_exercise_log" as zeeguu.core.model.sorted_exercise_log #aquamarine {
-}
-package "zeeguu.core.model.starred_article" as zeeguu.core.model.starred_article #aquamarine {
-}
-package "zeeguu.core.model.teacher" as zeeguu.core.model.teacher #aquamarine {
-}
-package "zeeguu.core.model.teacher_cohort_map" as zeeguu.core.model.teacher_cohort_map #aquamarine {
-}
-package "zeeguu.core.model.text" as zeeguu.core.model.text #aquamarine {
-}
-package "zeeguu.core.model.topic" as zeeguu.core.model.topic #aquamarine {
-}
-package "zeeguu.core.model.topic_filter" as zeeguu.core.model.topic_filter #aquamarine {
-}
-package "zeeguu.core.model.topic_subscription" as zeeguu.core.model.topic_subscription #aquamarine {
-}
-package "zeeguu.core.model.unique_code" as zeeguu.core.model.unique_code #aquamarine {
-}
-package "zeeguu.core.model.url" as zeeguu.core.model.url #aquamarine {
-}
-package "zeeguu.core.model.user" as zeeguu.core.model.user #aquamarine {
-}
-package "zeeguu.core.model.user_activitiy_data" as zeeguu.core.model.user_activitiy_data #aquamarine {
-}
-package "zeeguu.core.model.user_article" as zeeguu.core.model.user_article #aquamarine {
-}
-package "zeeguu.core.model.user_exercise_session" as zeeguu.core.model.user_exercise_session #aquamarine {
-}
-package "zeeguu.core.model.user_language" as zeeguu.core.model.user_language #aquamarine {
-}
-package "zeeguu.core.model.user_preference" as zeeguu.core.model.user_preference #aquamarine {
-}
-package "zeeguu.core.model.user_reading_session" as zeeguu.core.model.user_reading_session #aquamarine {
-}
-package "zeeguu.core.model.user_word" as zeeguu.core.model.user_word #aquamarine {
-}
-package "zeeguu.core.model.word_knowledge" as zeeguu.core.model.word_knowledge #aquamarine {
-}
-package "zeeguu.core.model.word_knowledge.word_interaction_history" as zeeguu.core.model.word_knowledge.word_interaction_history #aquamarine {
-}
-package "zeeguu.core.model.word_to_study" as zeeguu.core.model.word_to_study #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline" as zeeguu.core.nlp_pipeline #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.alignment_errant" as zeeguu.core.nlp_pipeline.alignment_errant #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.automatic_gec_tagging" as zeeguu.core.nlp_pipeline.automatic_gec_tagging #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.confusion_generator" as zeeguu.core.nlp_pipeline.confusion_generator #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.confusion_set" as zeeguu.core.nlp_pipeline.confusion_set #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.edit_errant" as zeeguu.core.nlp_pipeline.edit_errant #aquamarine {
-}
-package "zeeguu.core.nlp_pipeline.spacy_wrapper" as zeeguu.core.nlp_pipeline.spacy_wrapper #aquamarine {
-}
-package "zeeguu.core.sql" as zeeguu.core.sql #aquamarine {
-}
-package "zeeguu.core.sql.learner" as zeeguu.core.sql.learner #aquamarine {
-}
-package "zeeguu.core.sql.learner.exercises_history" as zeeguu.core.sql.learner.exercises_history #aquamarine {
-}
-package "zeeguu.core.sql.learner.words" as zeeguu.core.sql.learner.words #aquamarine {
-}
-package "zeeguu.core.sql.query_building" as zeeguu.core.sql.query_building #aquamarine {
-}
-package "zeeguu.core.sql.teacher" as zeeguu.core.sql.teacher #aquamarine {
-}
-package "zeeguu.core.sql.teacher.teachers_for_cohort" as zeeguu.core.sql.teacher.teachers_for_cohort #aquamarine {
-}
-package "zeeguu.core.user_activity_hooks" as zeeguu.core.user_activity_hooks #aquamarine {
-}
-package "zeeguu.core.user_activity_hooks.article_interaction_hooks" as zeeguu.core.user_activity_hooks.article_interaction_hooks #aquamarine {
-}
-package "zeeguu.core.user_statistics" as zeeguu.core.user_statistics #aquamarine {
-}
-package "zeeguu.core.user_statistics.activity" as zeeguu.core.user_statistics.activity #aquamarine {
-}
-package "zeeguu.core.user_statistics.exercise_corectness" as zeeguu.core.user_statistics.exercise_corectness #aquamarine {
-}
-package "zeeguu.core.user_statistics.exercise_sessions" as zeeguu.core.user_statistics.exercise_sessions #aquamarine {
-}
-package "zeeguu.core.user_statistics.reading_sessions" as zeeguu.core.user_statistics.reading_sessions #aquamarine {
-}
-package "zeeguu.core.user_statistics.student_overview" as zeeguu.core.user_statistics.student_overview #aquamarine {
-}
-package "zeeguu.core.util" as zeeguu.core.util #aquamarine {
-}
-package "zeeguu.core.util.encoding" as zeeguu.core.util.encoding #aquamarine {
-}
-package "zeeguu.core.util.hash" as zeeguu.core.util.hash #aquamarine {
-}
-package "zeeguu.core.util.text" as zeeguu.core.util.text #aquamarine {
-}
-package "zeeguu.core.util.timer_logging_decorator" as zeeguu.core.util.timer_logging_decorator #aquamarine {
-}
-package "zeeguu.core.word_scheduling" as zeeguu.core.word_scheduling #aquamarine {
-}
-package "zeeguu.core.word_scheduling.basicSR" as zeeguu.core.word_scheduling.basicSR #aquamarine {
-}
-package "zeeguu.core.word_scheduling.basicSR.basicSR" as zeeguu.core.word_scheduling.basicSR.basicSR #aquamarine {
-}
-package "zeeguu.core.word_stats" as zeeguu.core.word_stats #aquamarine {
-}
-zeeguu.core.account_management.user_account_creation --> zeeguu.core.emailer.user_activity
-zeeguu.core.account_management.user_account_creation --> zeeguu.core.model
-zeeguu.core.account_management.user_account_creation --> zeeguu.core.model.user
-zeeguu.core.bookmark_quality --> zeeguu.core.bookmark_quality.negative_qualities
-zeeguu.core.bookmark_quality --> zeeguu.core.bookmark_quality.positive_qualities
-zeeguu.core.bookmark_quality --> zeeguu.core.bookmark_quality.top_bookmarks_for_user
-zeeguu.core.bookmark_quality.fit_for_study --> zeeguu.core.bookmark_quality
-zeeguu.core.bookmark_quality.fit_for_study --> zeeguu.core.definition_of_learned
-zeeguu.core.bookmark_quality.fit_for_study --> zeeguu.core.model.sorted_exercise_log
-zeeguu.core.bookmark_quality.fit_for_study --> zeeguu.core.util.timer_logging_decorator
-zeeguu.core.bookmark_quality.negative_qualities --> zeeguu.core.model.bookmark
-zeeguu.core.bookmark_quality.positive_qualities --> zeeguu.core.bookmark_quality.negative_qualities
-zeeguu.core.bookmark_quality.positive_qualities --> zeeguu.core.model
-zeeguu.core.bookmark_quality.top_bookmarks_for_user --> zeeguu.core.bookmark_quality
-zeeguu.core.bookmark_quality.top_bookmarks_for_user --> zeeguu.core.model
-zeeguu.core.configuration --> zeeguu.core.configuration
-zeeguu.core.content_recommender --> zeeguu.core.content_recommender.elastic_recommender
-zeeguu.core.content_recommender.elastic_first_recommender --> zeeguu.core
-zeeguu.core.content_recommender.elastic_first_recommender --> zeeguu.core.content_recommender.elastic_recommender
-zeeguu.core.content_recommender.elastic_first_recommender --> zeeguu.core.content_recommender.mysql_recommender
-zeeguu.core.content_recommender.elastic_recommender --> zeeguu.core.elastic.elastic_query_builder
-zeeguu.core.content_recommender.elastic_recommender --> zeeguu.core.elastic.settings
-zeeguu.core.content_recommender.elastic_recommender --> zeeguu.core.model
-zeeguu.core.content_recommender.elastic_recommender --> zeeguu.core.util.timer_logging_decorator
-zeeguu.core.content_recommender.mysql_recommender --> zeeguu.core
-zeeguu.core.content_recommender.mysql_recommender --> zeeguu.core.model
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.content_retriever.content_cleaner
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.content_retriever.quality_filter
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.content_retriever.unicode_normalization
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.elastic.indexing
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.elastic.settings
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.model
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.model.article
-zeeguu.core.content_retriever.article_downloader --> zeeguu.core.model.difficulty_lingo_rank
-zeeguu.core.content_retriever.content_cleaner --> zeeguu.core.model
-zeeguu.core.content_retriever.quality_filter --> zeeguu.core.model
-zeeguu.core.content_retriever.video_dowloader --> zeeguu.core
-zeeguu.core.content_retriever.video_dowloader --> zeeguu.core.constants
-zeeguu.core.content_retriever.video_dowloader --> zeeguu.core.elastic.indexing
-zeeguu.core.content_retriever.video_dowloader --> zeeguu.core.elastic.settings
-zeeguu.core.content_retriever.video_dowloader --> zeeguu.core.model
-zeeguu.core.crowd_translations --> zeeguu.core.model
-zeeguu.core.definition_of_learned --> zeeguu.core.definition_of_learned.is_learned
-zeeguu.core.elastic.indexing --> zeeguu.core.elastic.settings
-zeeguu.core.elastic.indexing --> zeeguu.core.model
-zeeguu.core.elastic.indexing --> zeeguu.core.model.article
-zeeguu.core.elastic.indexing --> zeeguu.core.model.difficulty_lingo_rank
-zeeguu.core.emailer.password_reset --> zeeguu.core.emailer.zeeguu_mailer
-zeeguu.core.emailer.user_activity --> zeeguu.core.emailer.zeeguu_mailer
-zeeguu.core.emailer.user_activity --> zeeguu.core.model
-zeeguu.core.emailer.user_activity --> zeeguu.core.model.user_activitiy_data
-zeeguu.core.emailer.zeeguu_mailer --> zeeguu.core
-zeeguu.core.exercises.similar_words --> zeeguu.core.word_stats
-zeeguu.core.language.difficulty_estimator_factory --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.difficulty_estimator_factory --> zeeguu.core.language.strategies.default_difficulty_estimator
-zeeguu.core.language.difficulty_estimator_factory --> zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator
-zeeguu.core.language.difficulty_estimator_strategy --> zeeguu.core
-zeeguu.core.language.strategies.cognacy_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.cognacy_difficulty_estimator --> zeeguu.core.constants
-zeeguu.core.language.strategies.cognacy_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.cognacy_difficulty_estimator --> zeeguu.core.model
-zeeguu.core.language.strategies.cognacy_difficulty_estimator --> zeeguu.core.util.text
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator --> zeeguu.core.constants
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator --> zeeguu.core.model
-zeeguu.core.language.strategies.cognacy_wh_difficulty_estimator --> zeeguu.core.util.text
-zeeguu.core.language.strategies.default_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.default_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator --> zeeguu.core.model
-zeeguu.core.language.strategies.flesch_kincaid_difficulty_estimator --> zeeguu.core.util.text
-zeeguu.core.language.strategies.frequency_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.frequency_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.frequency_difficulty_estimator --> zeeguu.core.util.text
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core.constants
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core.model
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core.model.word_knowledge.word_interaction_history
-zeeguu.core.language.strategies.word_history_difficulty_estimator --> zeeguu.core.util.text
-zeeguu.core.language.strategies.word_rank_difficulty_estimator --> zeeguu.core
-zeeguu.core.language.strategies.word_rank_difficulty_estimator --> zeeguu.core.language.difficulty_estimator_strategy
-zeeguu.core.model --> zeeguu.core.configuration.configuration
-zeeguu.core.model --> zeeguu.core.language
 zeeguu.core.model --> zeeguu.core.model.article
 zeeguu.core.model --> zeeguu.core.model.article_difficulty_feedback
 zeeguu.core.model --> zeeguu.core.model.article_word
@@ -356,6 +116,7 @@ zeeguu.core.model --> zeeguu.core.model.exercise
 zeeguu.core.model --> zeeguu.core.model.exercise_outcome
 zeeguu.core.model --> zeeguu.core.model.exercise_source
 zeeguu.core.model --> zeeguu.core.model.feed
+zeeguu.core.model --> zeeguu.core.model.language
 zeeguu.core.model --> zeeguu.core.model.localized_topic
 zeeguu.core.model --> zeeguu.core.model.personal_copy
 zeeguu.core.model --> zeeguu.core.model.search
@@ -382,9 +143,6 @@ zeeguu.core.model --> zeeguu.core.model.user_reading_session
 zeeguu.core.model --> zeeguu.core.model.user_word
 zeeguu.core.model --> zeeguu.core.model.word_knowledge.word_interaction_history
 zeeguu.core.model --> zeeguu.core.model.word_to_study
-zeeguu.core.model --> zeeguu.core.word_scheduling.basicSR.basicSR
-zeeguu.core.model.article --> zeeguu.core.content_retriever.url_downloader
-zeeguu.core.model.article --> zeeguu.core.language.difficulty_estimator_factory
 zeeguu.core.model.article --> zeeguu.core.model
 zeeguu.core.model.article --> zeeguu.core.model.feed
 zeeguu.core.model.article --> zeeguu.core.model.language
@@ -392,13 +150,10 @@ zeeguu.core.model.article --> zeeguu.core.model.topic
 zeeguu.core.model.article --> zeeguu.core.model.url
 zeeguu.core.model.article --> zeeguu.core.model.user
 zeeguu.core.model.article --> zeeguu.core.model.user_article
-zeeguu.core.model.article --> zeeguu.core.util.encoding
 zeeguu.core.model.article_difficulty_feedback --> zeeguu.core.model
 zeeguu.core.model.article_word --> zeeguu.core.model.article
 zeeguu.core.model.articles_cache --> zeeguu.core.model
 zeeguu.core.model.articles_cache --> zeeguu.core.model.article
-zeeguu.core.model.bookmark --> zeeguu.core.bookmark_quality.fit_for_study
-zeeguu.core.model.bookmark --> zeeguu.core.definition_of_learned
 zeeguu.core.model.bookmark --> zeeguu.core.model
 zeeguu.core.model.bookmark --> zeeguu.core.model.exercise
 zeeguu.core.model.bookmark --> zeeguu.core.model.exercise_outcome
@@ -408,20 +163,16 @@ zeeguu.core.model.bookmark --> zeeguu.core.model.sorted_exercise_log
 zeeguu.core.model.bookmark --> zeeguu.core.model.text
 zeeguu.core.model.bookmark --> zeeguu.core.model.user
 zeeguu.core.model.bookmark --> zeeguu.core.model.user_word
-zeeguu.core.model.bookmark --> zeeguu.core.util.encoding
-zeeguu.core.model.bookmark --> zeeguu.core.word_scheduling.basicSR.basicSR
 zeeguu.core.model.bookmark_priority_arts --> zeeguu.core.model.bookmark
 zeeguu.core.model.cohort --> zeeguu.core.model.language
 zeeguu.core.model.cohort --> zeeguu.core.model.teacher_cohort_map
 zeeguu.core.model.cohort --> zeeguu.core.model.user
 zeeguu.core.model.cohort_article_map --> zeeguu.core.model.article
 zeeguu.core.model.cohort_article_map --> zeeguu.core.model.cohort
-zeeguu.core.model.cohort_article_map --> zeeguu.core.util.encoding
 zeeguu.core.model.difficulty_lingo_rank --> zeeguu.core.model.article
 zeeguu.core.model.exercise --> zeeguu.core.model.bookmark
 zeeguu.core.model.exercise --> zeeguu.core.model.exercise_outcome
 zeeguu.core.model.exercise --> zeeguu.core.model.exercise_source
-zeeguu.core.model.feed --> zeeguu.core.constants
 zeeguu.core.model.feed --> zeeguu.core.model
 zeeguu.core.model.feed --> zeeguu.core.model.language
 zeeguu.core.model.feed --> zeeguu.core.model.url
@@ -438,8 +189,6 @@ zeeguu.core.model.search_subscription --> zeeguu.core.model.search
 zeeguu.core.model.search_subscription --> zeeguu.core.model.user
 zeeguu.core.model.session --> zeeguu.core.model.user
 zeeguu.core.model.smartwatch.watch_interaction_event --> zeeguu.core.model.bookmark
-zeeguu.core.model.sorted_exercise_log --> zeeguu.core.definition_of_learned
-zeeguu.core.model.starred_article --> zeeguu.core.constants
 zeeguu.core.model.starred_article --> zeeguu.core.model
 zeeguu.core.model.starred_article --> zeeguu.core.model.language
 zeeguu.core.model.teacher --> zeeguu.core.model
@@ -450,15 +199,12 @@ zeeguu.core.model.text --> zeeguu.core.model
 zeeguu.core.model.text --> zeeguu.core.model.language
 zeeguu.core.model.text --> zeeguu.core.model.url
 zeeguu.core.model.text --> zeeguu.core.model.user_word
-zeeguu.core.model.text --> zeeguu.core.util
 zeeguu.core.model.topic --> zeeguu.core.model
 zeeguu.core.model.topic_filter --> zeeguu.core.model.topic
 zeeguu.core.model.topic_filter --> zeeguu.core.model.user
 zeeguu.core.model.topic_subscription --> zeeguu.core.model.topic
 zeeguu.core.model.topic_subscription --> zeeguu.core.model.user
 zeeguu.core.model.url --> zeeguu.core.model.domain_name
-zeeguu.core.model.user --> zeeguu.core
-zeeguu.core.model.user --> zeeguu.core.language.difficulty_estimator_factory
 zeeguu.core.model.user --> zeeguu.core.model
 zeeguu.core.model.user --> zeeguu.core.model.article
 zeeguu.core.model.user --> zeeguu.core.model.bookmark
@@ -467,51 +213,18 @@ zeeguu.core.model.user --> zeeguu.core.model.learner_stats.learner_stats
 zeeguu.core.model.user --> zeeguu.core.model.user_article
 zeeguu.core.model.user --> zeeguu.core.model.user_preference
 zeeguu.core.model.user --> zeeguu.core.model.user_reading_session
-zeeguu.core.model.user --> zeeguu.core.word_scheduling.basicSR.basicSR
-zeeguu.core.model.user_activitiy_data --> zeeguu.core.constants
 zeeguu.core.model.user_activitiy_data --> zeeguu.core.model
 zeeguu.core.model.user_activitiy_data --> zeeguu.core.model.user_reading_session
 zeeguu.core.model.user_article --> zeeguu.core.model
 zeeguu.core.model.user_article --> zeeguu.core.model.personal_copy
-zeeguu.core.model.user_article --> zeeguu.core.util.encoding
-zeeguu.core.model.user_exercise_session --> zeeguu.core.emailer.user_activity
 zeeguu.core.model.user_exercise_session --> zeeguu.core.model.user
 zeeguu.core.model.user_language --> zeeguu.core.model
 zeeguu.core.model.user_language --> zeeguu.core.model.language
 zeeguu.core.model.user_preference --> zeeguu.core.model
-zeeguu.core.model.user_reading_session --> zeeguu.core.constants
 zeeguu.core.model.user_reading_session --> zeeguu.core.model
-zeeguu.core.model.user_reading_session --> zeeguu.core.util.encoding
 zeeguu.core.model.user_word --> zeeguu.core.model.language
-zeeguu.core.model.word_knowledge.word_interaction_history --> zeeguu.core.constants
 zeeguu.core.model.word_knowledge.word_interaction_history --> zeeguu.core.model
 zeeguu.core.model.word_to_study --> zeeguu.core.model.bookmark
 zeeguu.core.model.word_to_study --> zeeguu.core.model.language
 zeeguu.core.model.word_to_study --> zeeguu.core.model.user
-zeeguu.core.nlp_pipeline --> zeeguu.core.nlp_pipeline.spacy_wrapper
-zeeguu.core.nlp_pipeline.alignment_errant --> zeeguu.core.nlp_pipeline.edit_errant
-zeeguu.core.nlp_pipeline.automatic_gec_tagging --> zeeguu.core.nlp_pipeline.alignment_errant
-zeeguu.core.nlp_pipeline.automatic_gec_tagging --> zeeguu.core.nlp_pipeline.spacy_wrapper
-zeeguu.core.nlp_pipeline.confusion_generator --> zeeguu.core.nlp_pipeline.automatic_gec_tagging
-zeeguu.core.nlp_pipeline.confusion_generator --> zeeguu.core.nlp_pipeline.confusion_set
-zeeguu.core.nlp_pipeline.confusion_generator --> zeeguu.core.nlp_pipeline.spacy_wrapper
-zeeguu.core.nlp_pipeline.confusion_set --> zeeguu.core.nlp_pipeline.spacy_wrapper
-zeeguu.core.sql.learner.exercises_history --> zeeguu.core.sql.query_building
-zeeguu.core.sql.learner.words --> zeeguu.core.model
-zeeguu.core.sql.learner.words --> zeeguu.core.sql.query_building
-zeeguu.core.sql.teacher.teachers_for_cohort --> zeeguu.core.sql.query_building
-zeeguu.core.user_activity_hooks.article_interaction_hooks --> zeeguu.core
-zeeguu.core.user_activity_hooks.article_interaction_hooks --> zeeguu.core.emailer.user_activity
-zeeguu.core.user_activity_hooks.article_interaction_hooks --> zeeguu.core.model
-zeeguu.core.user_statistics.activity --> zeeguu.core.constants
-zeeguu.core.user_statistics.student_overview --> zeeguu.core.user_statistics.exercise_corectness
-zeeguu.core.user_statistics.student_overview --> zeeguu.core.user_statistics.exercise_sessions
-zeeguu.core.user_statistics.student_overview --> zeeguu.core.user_statistics.reading_sessions
-zeeguu.core.util --> zeeguu.core.util.encoding
-zeeguu.core.util --> zeeguu.core.util.hash
-zeeguu.core.util.encoding --> zeeguu.core.constants
-zeeguu.core.util.text --> zeeguu.core.model
-zeeguu.core.word_scheduling.basicSR.basicSR --> zeeguu.core.model
-zeeguu.core.word_scheduling.basicSR.basicSR --> zeeguu.core.model.bookmark
-zeeguu.core.word_scheduling.basicSR.basicSR --> zeeguu.core.sql.query_building
 @enduml
