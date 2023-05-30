@@ -46,46 +46,6 @@ plantuml scripts/packages.puml
 ```
 
 ```{python}
-
-degrees = G.in_degree()
-
-in_degrees_df = [{"node": key, "indegree":value} for key, value in degrees]
-
-df = pd.DataFrame(in_degrees_df)
-
-df = df.sort_values('indegree', ascending=False)
-
-df.head(15)
-```
-
-```{python}
-
-degrees_out = G.out_degree()
-
-out_degree_df = [{"node": key, "indegree":value} for key, value in degrees_out]
-df_out = pd.DataFrame(out_degree_df)
-df_out = df_out.sort_values('indegree', ascending=False)
-df_out.head(15)
-
-```
-
-```{python}
-
-level = {x :  get_node_level(x) for x in G.nodes()}
-nx.set_node_attributes(G, level, "level")
-
-nodes = [
-    node
-    for node, data
-    in G.nodes(data=True)
-]
-
-subgraph = G.subgraph(nodes)
-
-```
-
-
-```{python}
 from archrcover.graph_funcs import aggregate_edges, remove_nodes, rename_nodes
 
 nodes_to_remove = [
