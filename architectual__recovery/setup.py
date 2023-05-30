@@ -14,7 +14,7 @@ setup(
     version=version,
     description="Python Package for ...",
     py_modules=find_packages(where="src"),
-    packages=find_packages("src/"),
+    packages=find_packages("src"),
     package_dir={"": "src"},
     package_data={'': include_data_patterns},
     include_package_data=True,

@@ -1,13 +1,10 @@
 # archrcover
 
-## Introduction
-
-python_package_template
+This is a package for code used in the ITU - course Software architecture.
 
 ## Getting Started
 
-Run `make`
+Core code can be found in the quarto document: architectual__recovery/scripts/recovery.qmd
 
-## Build and Test
+Helper functions etc. can be found in: architectual__recovery/scripts/src
 
-Run `make build test`

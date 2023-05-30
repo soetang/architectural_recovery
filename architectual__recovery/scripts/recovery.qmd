@@ -7,8 +7,14 @@ format:
 
 
 ```{python}
+# jupyter magic that lets us reload package without restarting 
+%load_ext autoreload
+%autoreload 2
 import os
+```
 
+
+```{python}
 os.system(
     " pyreverse zeeguu \\"
         "--output 'dot' \\"
@@ -57,26 +63,16 @@ df.head(15)
 degrees_out = G.out_degree()
 
 out_degree_df = [{"node": key, "indegree":value} for key, value in degrees_out]
-
 df_out = pd.DataFrame(out_degree_df)
-
 df_out = df_out.sort_values('indegree', ascending=False)
-
 df_out.head(15)
+
 ```
 
 ```{python}
 
-def get_node_level(x):
-    return x.count('.')
-
-def change_level(x:str, level:int):
-    levels = x.split('.')
-    return ".".join(levels[0:level]) 
-
 level = {x :  get_node_level(x) for x in G.nodes()}
 nx.set_node_attributes(G, level, "level")
-
 
 nodes = [
     node
@@ -84,68 +80,186 @@ nodes = [
     in G.nodes(data=True)
 ]
 
-
 subgraph = G.subgraph(nodes)
-
 
 ```
 
 
 ```{python}
-import re 
-import warnings
-
-def aggregate_edges(G, level, exclude_relations_to_self = True):
-    edges = [
-        {
-            'outgoing' : change_level(outgoing, level), 
-            'ingoing' : change_level(ingoing, level)
-        }
-        for outgoing, ingoing
-        in G.edges(data=False)
-    ]
-
-    # add matching edges together an create a weight
-    df = pd.DataFrame(edges).groupby(['outgoing', 'ingoing']).size().to_frame('weight')
-    df = df.reset_index()
-
-    if exclude_relations_to_self:
-        df = df[df['outgoing'] != df['ingoing']]
-
-    return list(df.itertuples(index=False, name=None))
-
-def remove_nodes(g, filter:list[str]):
-
-    if isinstance(filter, str):
-        warnings.warn('You entered filter as a string, please consider if this is what you wanted to do?')
-        filter = list([filter])
-
-    regex = "|".join(filter)
-    nodes = g.nodes(data=False)
-
-    matching_nodes = [x for x in nodes if re.match(regex, x)]
-
-    g.remove_nodes_from(matching_nodes)
-
-    return g
-
-
-edges = aggregate_edges(G, 3)
-
-new_graph = nx.DiGraph()
-new_graph.add_weighted_edges_from(edges)
+from archrcover.graph_funcs import aggregate_edges, remove_nodes, rename_nodes
 
 nodes_to_remove = [
     "zeeguu$", # Not top level code
     "zeeguu\.core$", # Remove core sinces it look like pure logging which is un-interesting
-    "test$" # removing tests
+    "\.test$" # removing tests
 ]
 
-remove_nodes(new_graph, nodes_to_remove)
+G = remove_nodes(G, nodes_to_remove)
+edges = aggregate_edges(G, 3)
+
+new_graph = nx.DiGraph()
+new_graph.add_weighted_edges_from(edges)
+new_graph = remove_nodes(new_graph, nodes_to_remove)
+new_graph = rename_nodes(new_graph, 'zeeguu.', '', regex = False)
 
 draw_graph(new_graph, (12, 12), with_labels = True)
 
+from pyvis.network import Network
+nt = Network('800', directed = True)
+
+nt.from_nx(new_graph)
+nt.set_options(
+"""
+    var options = {
+        "edges": {
+            "arrowStrikethrough": false
+        },
+        "nodes": {
+            "font" : {
+                "size" : 25
+                , "face" : "arial"
+                , "bold" : true
+                , "strokeWidth" : 2
+                , "strokeColor" : "#343434"
+            } 
+        }, 
+        "physics":{
+            "barnesHut": {
+                    "gravitationalConstant": -15000,
+                    "avoidOverlap": 1
+            }
+        }
+    }
+"""
+)
+
+nt.save_graph('level_3_view.html')
+```
 
 
-hej = re.match('zeeguu', 'zeeguu.api')
+```{python}
+import re
+core_model_view = G.copy()
+
+nodes_to_remove = [node for node in core_model_view.nodes() if re.match('^zeeguu\.core\.model', node) is None]
+len(nodes_to_remove)
+len(G.nodes())
+core_model_view.remove_nodes_from(nodes_to_remove)
+draw_graph(core_model_view, (12, 12), with_labels = True)
+
+edges = aggregate_edges(core_model_view, 4)
+core_model_view = nx.DiGraph()
+core_model_view.add_weighted_edges_from(edges)
+draw_graph(core_model_view, (12, 12), with_labels = True)
+
+nx.set_node_attributes(core_model_view, dict(core_model_view.in_degree()), "size")
+
+# removing zeeguu.core.model since it just seem to pass through functions
+nodes_to_remove = [
+    "zeeguu\.core\.model$", # Remove core sinces it look like pure logging which is 
+
+]
+core_model_view = remove_nodes(core_model_view, nodes_to_remove)
+
+nodes_to_remove = [
+    node for node, v in dict(core_model_view.in_degree()).items()
+    if v < 2
+]
+
+core_model_view.remove_nodes_from(nodes_to_remove)
+
+core_model_view = rename_nodes(core_model_view, 'zeeguu.', '', regex = False)
+from pyvis.network import Network
+c_nt = Network('800', directed = True)
+
+c_nt.from_nx(core_model_view)
+c_nt.set_options(
+"""
+    var options = {
+        "edges": {
+            "arrowStrikethrough": false
+        },
+        "nodes": {
+            "font" : {
+                "size" : 25
+                , "face" : "arial"
+                , "bold" : true
+                , "strokeWidth" : 2
+                , "strokeColor" : "#343434"
+            } 
+        }, 
+        "physics":{
+            "barnesHut": {
+                    "gravitationalConstant": -25000,
+                    "avoidOverlap": 1
+            }
+        }
+    }
+"""
+)
+c_nt.save_graph('core_model_view.html')
+```
+
+```{python}
+import re
+core_model_view = G.copy()
+
+nodes_to_remove = [node for node in core_model_view.nodes() if re.match('^zeeguu\.api', node) is None]
+len(nodes_to_remove)
+len(G.nodes())
+core_model_view.remove_nodes_from(nodes_to_remove)
+draw_graph(core_model_view, (12, 12), with_labels = True)
+
+edges = aggregate_edges(core_model_view, 4)
+core_model_view = nx.DiGraph()
+core_model_view.add_weighted_edges_from(edges)
+draw_graph(core_model_view, (12, 12), with_labels = True)
+
+nx.set_node_attributes(core_model_view, dict(core_model_view.in_degree()), "size")
+
+# removing zeeguu.core.model since it just seem to pass through functions
+nodes_to_remove = [
+    "zeeguu\.core\.model$", # Remove core sinces it look like pure logging which is 
+    "\.test"
+]
+core_model_view = remove_nodes(core_model_view, nodes_to_remove)
+
+# nodes_to_remove = [
+#     node for node, v in dict(core_model_view.in_degree()).items()
+#     if v < 2
+# ]
+
+# core_model_view.remove_nodes_from(nodes_to_remove)
+
+core_model_view = rename_nodes(core_model_view, 'zeeguu.', '', regex = False)
+core_model_view = rename_nodes(core_model_view, '$api.', '', regex = True)
+from pyvis.network import Network
+c_nt = Network('800', directed = True)
+
+c_nt.from_nx(core_model_view)
+c_nt.set_options(
+"""
+    var options = {
+        "edges": {
+            "arrowStrikethrough": false
+        },
+        "nodes": {
+            "font" : {
+                "size" : 25
+                , "face" : "arial"
+                , "bold" : true
+                , "strokeWidth" : 2
+                , "strokeColor" : "#343434"
+            } 
+        }, 
+        "physics":{
+            "barnesHut": {
+                    "gravitationalConstant": -15000,
+                    "avoidOverlap": 1
+            }
+        }
+    }
+"""
+)
+c_nt.save_graph('api_view.html')
 ```

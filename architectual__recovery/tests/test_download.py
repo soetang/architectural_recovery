@@ -2,7 +2,7 @@ import os
 from archrcover.download_repo import get_repo
 from tempfile import mkdtemp
 
-# test does run locally at pfa
+# test does not run locally at pfa
 
 # def test_can_download_repo():
 #     path = mkdtemp()
